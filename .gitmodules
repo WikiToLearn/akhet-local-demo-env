@@ -1,0 +1,6 @@
+[submodule "example-ui/src/akhet-php-client"]
+	path = example-ui/src/akhet-php-client
+	url = https://github.com/AkhetLab/akhet-php-client.git
+[submodule "example-ui/src/noVNC"]
+	path = example-ui/src/noVNC
+	url = https://github.com/kanaka/noVNC
