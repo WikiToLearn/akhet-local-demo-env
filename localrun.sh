@@ -67,7 +67,6 @@ docker create \
  --name akhet \
  -ti \
  -p 8080:80  \
- -p 8443:443 \
  -v /var/run/docker.sock:/var/run/docker.sock \
  akhetbase/akhet
 
