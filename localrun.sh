@@ -3,6 +3,8 @@ set -e
 #set -x
 cd $(dirname "$(readlink -f $0)")
 
+git pull
+
 do_akhet() {
     echo "Exec for "$1
     if test ! -d "$1"
@@ -83,8 +85,10 @@ external_port=8080
 external_ssl_port=8443
 cuda=$AKHET_CUDA
 cuda_devices=$AKHET_CUDA_DEVS
-username=akhetdemouser
-password=akhetdemopass
+api_username=akhetdemouser
+api_password=akhetdemopass
+api_whitelist_ip=127.0.0.1,192.168.0.0/16,172.16.0.0/12,10.0.0.0/8
+
 
 [network:default]
 defaultrule=ACCEPT
