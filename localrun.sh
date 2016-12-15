@@ -10,7 +10,7 @@ do_akhet() {
     if test ! -d "$1"
     then
         echo " > Missing $1 => git clone..."
-        git clone "https://github.com/AkhetLab/$1.git"
+        git clone "https://github.com/WikiToLearn/$1.git"
     else
         echo " > Found $1 => git pull..."
         cd "$1"
@@ -37,20 +37,19 @@ then
 fi
 cd AkhetRepos/
 
-do_akhet akhet
-do_akhet akhet-firewall
+do_akhet akhet-sys
+do_akhet akhet-sys-firewall
 
 if test ! -c /dev/nvidia-uvm
 then
     echo " > Standard akhet setup"
     do_akhet akhet-base-ubuntu-16-04
-    do_akhet ubuntu-xterm
+    do_akhet akhet-image-ubuntu-xterm
     AKHET_CUDA="off"
     AKHET_CUDA_DEVS=$(ls /dev/nvidia[0-9] | tr ' ' ',')
 else
     echo " > Cuda akhet setup"
     do_akhet akhet-base-ubuntu-14-04-cuda-7-5
-    do_akhet ubuntu-xterm-cuda
     AKHET_CUDA="on"
     AKHET_CUDA_DEVS=$(ls /dev/nvidia[0-9] | tr ' ' ',')
 fi
